@@ -1,2 +1,0 @@
-# tineda-de-ropa
-prueba

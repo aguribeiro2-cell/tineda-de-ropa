@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECHOES Festival 2026 | Sonido & Naturaleza Mística</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Syne para títulos modernos de festival e Inter para legibilidad -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        void: {
+                            900: '#06020f', // Fondo ultra oscuro místico-espacial
+                            950: '#030107', // Fondo super profundo
+                        },
+                        psy: {
+                            neonPink: '#ff007f', // Rosa neón electrizante
+                            electricCyan: '#00f0ff', // Cian brillante
+                            acidLime: '#b5ff00', // Verde lima ácido
+                            sunsetGold: '#ff9d00', // Dorado atardecer intenso
+                            deepViolet: '#1e0b36', // Violeta bosque oscuro
+                        }
+                    },
+                    boxShadow: {
+                        'neon-pink': '0 0 20px rgba(255, 0, 127, 0.45)',
+                        'neon-cyan': '0 0 20px rgba(0, 240, 255, 0.45)',
+                        'neon-lime': '0 0 20px rgba(181, 255, 0, 0.45)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Estilos fluidos de UI con gradientes y difuminados premium */
+        .glassmorphism {
+            background: rgba(15, 6, 31, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .text-neon-glow {
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5), 0 0 20px rgba(255, 0, 127, 0.3);
+        }
+        .text-neon-glow-cyan {
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+        /* Esferas de luz psicodélicas que flotan en el fondo */
+        @keyframes orbit-pink {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(50px, -80px) scale(1.2); }
+            66% { transform: translate(-40px, 60px) scale(0.8); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes orbit-cyan {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(-60px, 70px) scale(0.9); }
+            66% { transform: translate(80px, -50px) scale(1.3); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        @keyframes orbit-lime {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(100px, 100px) scale(1.2); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .bg-neon-sphere-pink {
+            animation: orbit-pink 15s infinite ease-in-out;
+            background: radial-gradient(circle, rgba(255, 0, 127, 0.25) 0%, rgba(0,0,0,0) 70%);
+        }
+        .bg-neon-sphere-cyan {
+            animation: orbit-cyan 20s infinite ease-in-out;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, rgba(0,0,0,0) 70%);
+        }
+        .bg-neon-sphere-lime {
+            animation: orbit-lime 18s infinite ease-in-out 3s;
+            background: radial-gradient(circle, rgba(181, 255, 0, 0.15) 0%, rgba(0,0,0,0) 70%);
+        }
+        /* Personalización de barra de desplazamiento para un toque ciber-orgánico */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030107;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ff007f, #00f0ff);
+            border-radius: 4px;
+        }
+        /* Suavizado global de elementos interactivos */
+        * {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-void-950 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-psy-neonPink selection:text-white overflow-x-hidden">
+
+    <div id="academic-banner" class="bg-gradient-to-r from-psy-neonPink via-psy-electricCyan to-psy-acidLime text-void-950 text-xs py-2 px-4 flex justify-between items-center z-50 sticky top-0 border-b border-white/20 font-bold shadow-lg">
+        <div class="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-void-950 animate-ping"></span>
+            <span><strong>Evaluación Semestral:</strong> Diseñador Web / Caso: Festival de Música (ECHOES)</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <button onclick="toggleAcademicInfo()" class="underline hover:text-void-900 transition text-[11px] md:text-xs">Ver Consignas Pizarra</button>
+            <button onclick="document.getElementById('academic-banner').remove()" class="text-void-950 hover:scale-110 font-bold ml-2" aria-label="Cerrar banner">&times;</button>
+        </div>
+    </div>
+
+    <div id="academic-modal" class="fixed inset-0 bg-void-950/95 backdrop-blur-md z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-psy-deepViolet text-slate-100 rounded-3xl max-w-2xl w-full p-6 md:p-8 max-h-[85vh] overflow-y-auto shadow-2xl border border-psy-neonPink/40">
+            <div class="flex justify-between items-start border-b border-white/10 pb-4 mb-4">
+                <h3 class="font-display text-2xl font-bold bg-gradient-to-r from-psy-neonPink to-psy-electricCyan bg-clip-text text-transparent">Rúbrica Evaluativa Integrada</h3>
+                <button onclick="toggleAcademicInfo()" class="text-2xl hover:text-psy-neonPink text-slate-400">&times;</button>
+            </div>
+            <div class="space-y-4 text-sm text-slate-300">
+                <p class="italic text-psy-acidLime">Este desarrollo dinámico responde estrictamente a las solicitudes evaluadas en:</p>
+                <div class="bg-void-900 p-4 rounded-2xl border border-white/5 space-y-2">
+                    <span class="block text-xs text-psy-electricCyan font-mono">Imágenes analizadas de referencia:</span>
+                    <ul class="list-disc pl-5 text-xs space-y-1">
+                        <li><strong>WhatsApp Image 2026-07-13 at 2.52.27 PM_2.jpeg</strong> (Caso de Festival de Música)</li>
+                        <li><strong>WhatsApp Image 2026-07-15 at 10.15.55 PM.jpeg</strong> (Pizarra de Criterios del Docente)</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-void-950 p-4 rounded-xl border border-white/5">
+                    <h4 class="font-bold text-white mb-2 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-psy-neonPink"></span> Requerimientos Cumplidos:
+                    </h4>
+                    <ul class="list-disc pl-5 space-y-1 text-xs">
+                        <li><strong>Nombre y Fecha:</strong> ECHOES Festival - 11, 12 y 13 de Diciembre de 2026.</li>
+                        <li><strong>Artistas Participantes:</strong> Fichas personalizadas en español con reproductor de pistas integrado.</li>
+                        <li><strong>Horarios de Shows:</strong> Calendario interactivo por escenarios y selector de favoritos para crear itinerario personal.</li>
+                        <li><strong>Lugar del Evento:</strong> Entorno de las Sierras de Rocha con mapa de distribución interactivo.</li>
+                        <li><strong>Imágenes y Videos:</strong> Aftermovie oficial en alta fidelidad y galería fotográfica inmersiva.</li>
+                        <li><strong>Simulador de Entradas:</strong> Cotizador dinámico en español con cálculo de extras, descuentos y exportación inmediata a WhatsApp.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-6 text-center">
+                <button onclick="toggleAcademicInfo()" class="bg-gradient-to-r from-psy-neonPink to-psy-electricCyan text-void-950 px-6 py-2.5 rounded-full font-bold hover:opacity-90 transition duration-300 w-full md:w-auto uppercase tracking-wide">Confirmar e Inspeccionar Proyecto</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="glassmorphism sticky top-[33px] z-40 border-b border-white/10 transition-all duration-300 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Botón Menú Móvil -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-100 p-2 focus:outline-none hover:text-psy-neonPink transition" aria-label="Abrir menú de navegación">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+
+            <!-- Isotipo / Logotipo de la Marca -->
+            <div class="flex-1 md:flex-initial text-center md:text-left">
+                <a href="#" class="inline-block group">
+                    <span class="font-display text-3xl font-black tracking-tighter text-white group-hover:text-psy-neonPink transition duration-300">ECHOES</span>
+                    <span class="block text-[8px] uppercase tracking-[0.45em] text-psy-acidLime font-bold -mt-1 group-hover:text-psy-electricCyan transition">FESTIVAL PSICODÉLICO</span>
+                </a>
+            </div>
+
+            <!-- Navegación de Escritorio -->
+            <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 text-xs font-bold tracking-wider uppercase text-slate-300">
+                <a href="#hero" class="hover:text-psy-neonPink transition relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-psy-neonPink hover:after:w-full after:transition-all">Inicio</a>
+                <a href="#lineup" class="hover:text-psy-electricCyan transition relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-psy-electricCyan hover:after:w-full after:transition-all">Artistas</a>
+                <a href="#horarios" class="hover:text-psy-acidLime transition relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-psy-acidLime hover:after:w-full after:transition-all">Horarios</a>
+                <a href="#experiencia" class="hover:text-psy-sunsetGold transition relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-psy-sunsetGold hover:after:w-full after:transition-all">Experiencia</a>
+                <a href="#ubicacion" class="hover:text-psy-neonPink transition relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-psy-neonPink hover:after:w-full after:transition-all">Sierras</a>
+                <a href="#entradas" class="hover:text-psy-electricCyan transition relative py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-psy-electricCyan hover:after:w-full after:transition-all">Entradas</a>
+            </nav>
+
+            <!-- Acciones / Mi Itinerario Favorito -->
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleMyScheduleModal()" class="relative p-2.5 bg-psy-deepViolet/80 hover:bg-psy-neonPink hover:text-void-950 text-psy-neonPink rounded-full transition-all duration-300 border border-psy-neonPink/20 shadow-neon-pink" aria-label="Ver mi cronograma personalizado">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c.173-.434.767-.434.94 0l1.847 3.743 4.12.599c.479.069.67.659.322.996l-2.982 2.906.704 4.104c.083.48-.42.847-.85.566L12 14.193l-3.693 1.942c-.43.226-.933-.14-.85-.566l.704-4.104-2.982-2.906c-.348-.337-.158-.927.322-.996l4.12-.599 1.847-3.743z" />
+                    </svg>
+                    <!-- Indicador flotante -->
+                    <span id="fav-badge" class="absolute -top-1 -right-1 bg-psy-acidLime text-void-950 text-[10px] font-extrabold rounded-full w-5 h-5 flex items-center justify-center border border-void-950 hidden">0</span>
+                </button>
+                <a href="#entradas" class="hidden lg:inline-block bg-gradient-to-r from-psy-neonPink to-psy-electricCyan text-void-950 px-6 py-2.5 rounded-full text-xs font-extrabold tracking-wider hover:opacity-90 transition duration-300 uppercase shadow-neon-pink hover:scale-105">Comprar Entradas</a>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-psy-deepViolet/95 border-t border-white/10 px-4 py-4 space-y-3 shadow-2xl">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-psy-neonPink font-semibold tracking-wide">Inicio</a>
+            <a href="#lineup" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-psy-electricCyan font-semibold tracking-wide">Artistas</a>
+            <a href="#horarios" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-psy-acidLime font-semibold tracking-wide">Horarios</a>
+            <a href="#experiencia" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-psy-sunsetGold font-semibold tracking-wide">Experiencia</a>
+            <a href="#ubicacion" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-psy-neonPink font-semibold tracking-wide">Lugar</a>
+            <a href="#entradas" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-psy-electricCyan font-semibold tracking-wide">Entradas</a>
+            <a href="#entradas" onclick="toggleMobileMenu()" class="block text-center bg-gradient-to-r from-psy-neonPink to-psy-electricCyan text-void-950 py-3 rounded-full font-extrabold text-sm uppercase">Comprar Entradas</a>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-[92vh] flex items-center justify-center bg-void-900 overflow-hidden py-16">
+        <!-- Esferas de luz dinámicas del fondo -->
+        <div class="absolute top-10 left-10 w-[500px] h-[500px] bg-neon-sphere-pink rounded-full filter blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[600px] h-[600px] bg-neon-sphere-cyan rounded-full filter blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-neon-sphere-lime rounded-full filter blur-[110px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Textos del Hero -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-psy-deepViolet/80 rounded-full border border-psy-neonPink/30 shadow-neon-pink">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-psy-neonPink animate-pulse"></span>
+                    <span class="uppercase tracking-[0.25em] text-[10px] font-extrabold text-psy-neonPink">11, 12 y 13 de Diciembre, 2026</span>
+                </div>
+                
+                <h1 class="font-display text-5xl sm:text-7xl md:text-8xl font-black text-white leading-none tracking-tighter">
+                    ECOS DEL<br>
+                    <span class="bg-gradient-to-r from-psy-neonPink via-psy-sunsetGold to-psy-acidLime bg-clip-text text-transparent italic font-normal text-outline">BOSQUE</span>
+                </h1>
+                
+                <p class="text-slate-200 max-w-xl mx-auto lg:mx-0 text-base md:text-lg leading-relaxed font-light">
+                    Un viaje multisensorial e hiper-colorido donde la música orgánica y la naturaleza mística de Uruguay convergen. Tres días de arte luminoso, sonido envolvente y comunión ecológica consciente.
+                </p>
+
+                <!-- Cuenta Regresiva de Alta Fidelidad -->
+                <div class="grid grid-cols-4 gap-3 max-w-sm mx-auto lg:mx-0 py-4" id="countdown-container">
+                    <div class="bg-psy-deepViolet/55 border border-psy-neonPink/20 rounded-2xl p-4 text-center shadow-md">
+                        <span id="count-days" class="font-display text-3xl md:text-4xl font-extrabold text-psy-neonPink text-neon-glow">00</span>
+                        <p class="text-[9px] uppercase tracking-wider text-slate-400 mt-1 font-semibold">Días</p>
+                    </div>
+                    <div class="bg-psy-deepViolet/55 border border-psy-electricCyan/20 rounded-2xl p-4 text-center shadow-md">
+                        <span id="count-hours" class="font-display text-3xl md:text-4xl font-extrabold text-psy-electricCyan text-neon-glow-cyan">00</span>
+                        <p class="text-[9px] uppercase tracking-wider text-slate-400 mt-1 font-semibold">Horas</p>
+                    </div>
+                    <div class="bg-psy-deepViolet/55 border border-psy-acidLime/20 rounded-2xl p-4 text-center shadow-md">
+                        <span id="count-mins" class="font-display text-3xl md:text-4xl font-extrabold text-psy-acidLime">00</span>
+                        <p class="text-[9px] uppercase tracking-wider text-slate-400 mt-1 font-semibold">Minutos</p>
+                    </div>
+                    <div class="bg-psy-deepViolet/55 border border-psy-sunsetGold/20 rounded-2xl p-4 text-center shadow-md">
+                        <span id="count-secs" class="font-display text-3xl md:text-4xl font-extrabold text-psy-sunsetGold">00</span>
+                        <p class="text-[9px] uppercase tracking-wider text-slate-400 mt-1 font-semibold">Segundos</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                    <a href="#entradas" class="bg-gradient-to-r from-psy-neonPink via-psy-sunsetGold to-psy-acidLime text-void-950 px-8 py-4 rounded-full font-extrabold tracking-wider hover:opacity-95 hover:scale-105 transition duration-300 text-center uppercase text-sm shadow-neon-pink">
+                        Adquirir Entradas
+                    </a>
+                    <a href="#horarios" class="border-2 border-psy-electricCyan text-psy-electricCyan px-8 py-4 rounded-full font-extrabold tracking-wider hover:bg-psy-electricCyan hover:text-void-950 transition duration-300 text-center uppercase text-sm shadow-neon-cyan">
+                        Explorar Horarios
+                    </a>
+                </div>
+            </div>
+
+            <!-- Imagen Destacada del Hero con Bordes de Neón -->
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="relative w-full max-w-sm aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl group border-2 border-psy-neonPink/40 shadow-neon-pink">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" 
+                         alt="Ambiente electrizante del festival" 
+                         class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-void-950 via-transparent to-transparent"></div>
+                    
+                    <!-- Tarjeta flotante interactiva -->
+                    <div class="absolute bottom-6 left-6 right-6 bg-psy-deepViolet/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-psy-electricCyan/30 flex justify-between items-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <div>
+                            <p class="text-[9px] text-psy-electricCyan font-extrabold tracking-widest uppercase">Fase Preventa</p>
+                            <h3 class="font-display text-white font-bold text-sm">Abonos con 10% Off</h3>
+                        </div>
+                        <span class="bg-psy-neonPink text-white text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-full font-extrabold shadow-neon-pink">Últimos Cupos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-psy-deepViolet/40 border-y border-psy-neonPink/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex items-center gap-4 p-5 bg-void-900/80 rounded-2xl border border-psy-neonPink/20 shadow-md">
+                <div class="bg-psy-neonPink/10 p-3.5 rounded-xl text-psy-neonPink border border-psy-neonPink/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l6-6m0 0l6 6m-6-6v12m0 3H3" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">3 Escenarios Lumínicos</h4>
+                    <p class="text-xs text-slate-300 mt-1">Sonido 3D inmersivo y visuales psicodélicos interactivos.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 p-5 bg-void-900/80 rounded-2xl border border-psy-electricCyan/20 shadow-md">
+                <div class="bg-psy-electricCyan/10 p-3.5 rounded-xl text-psy-electricCyan border border-psy-electricCyan/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.03v3.483H6.75v-3.483c0-1.064.83-1.884 1.866-2.03a30.222 30.222 0 013.383-.237zm0-9.75a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">100% Ecológico & Carbono Cero</h4>
+                    <p class="text-xs text-slate-300 mt-1">Sostenibilidad total. Plantamos un árbol nativo por cada ticket.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 p-5 bg-void-900/80 rounded-2xl border border-psy-acidLime/20 shadow-md">
+                <div class="bg-psy-acidLime/10 p-3.5 rounded-xl text-psy-acidLime border border-psy-acidLime/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Glamping de Luces & Gastro</h4>
+                    <p class="text-xs text-slate-300 mt-1">Carpas de lujo iluminadas y mercado de cocina orgánica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lineup" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs uppercase tracking-[0.3em] font-extrabold text-psy-neonPink">Alquimia Sonora Vibrante</span>
+            <h2 class="font-display text-4xl md:text-6xl font-black text-white mt-2">Artistas Confirmados</h2>
+            <div class="w-24 h-1.5 bg-gradient-to-r from-psy-neonPink to-psy-electricCyan mx-auto mt-4 rounded-full"></div>
+            <p class="text-slate-300 text-sm mt-4 leading-relaxed font-light">Explora las bandas, productores e intérpretes del festival. Filtra según tus gustos musicales preferidos.</p>
+        </div>
+
+        <!-- Filtros de Lineup de Colores Llamativos -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button onclick="filterLineup('all')" id="btn-lineup-all" class="lineup-filter-btn active px-6 py-3 rounded-full text-xs font-extrabold tracking-wider uppercase bg-psy-neonPink text-white shadow-neon-pink transition">Todos los Estilos</button>
+            <button onclick="filterLineup('Live Set')" id="btn-lineup-live" class="lineup-filter-btn px-6 py-3 rounded-full text-xs font-extrabold tracking-wider uppercase bg-psy-deepViolet/80 text-slate-200 border border-psy-electricCyan/40 hover:border-psy-electricCyan transition">Electronic Live</button>
+            <button onclick="filterLineup('Indie Folk')" id="btn-lineup-folk" class="lineup-filter-btn px-6 py-3 rounded-full text-xs font-extrabold tracking-wider uppercase bg-psy-deepViolet/80 text-slate-200 border border-psy-acidLime/40 hover:border-psy-acidLime transition">Indie & Folk</button>
+            <button onclick="filterLineup('Organic House')" id="btn-lineup-organic" class="lineup-filter-btn px-6 py-3 rounded-full text-xs font-extrabold tracking-wider uppercase bg-psy-deepViolet/80 text-slate-200 border border-psy-sunsetGold/40 hover:border-psy-sunsetGold transition">Organic House</button>
+        </div>
+
+        <!-- Grid de Artistas -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="artists-grid">
+            <!-- Se inyecta dinámicamente vía Javascript -->
+        </div>
+    </section>
+
+    <section id="horarios" class="py-24 bg-void-900 border-y border-psy-neonPink/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] font-extrabold text-psy-electricCyan font-mono">Planifica tu Viaje Sónico</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-white mt-2">Cronograma del Festival</h2>
+                    <div class="w-20 h-1 bg-psy-electricCyan mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Selector de Día Activo llamativo -->
+                <div class="flex gap-2 bg-psy-deepViolet/60 p-2 rounded-2xl border border-psy-neonPink/20 shadow-md">
+                    <button onclick="setActiveDay(1)" id="day-tab-1" class="day-tab-btn active px-6 py-3 rounded-xl text-xs font-extrabold tracking-wider uppercase bg-psy-neonPink text-white shadow-neon-pink transition">Día 1 (Vier)</button>
+                    <button onclick="setActiveDay(2)" id="day-tab-2" class="day-tab-btn px-6 py-3 rounded-xl text-xs font-extrabold tracking-wider uppercase text-slate-300 hover:text-white transition">Día 2 (Sáb)</button>
+                    <button onclick="setActiveDay(3)" id="day-tab-3" class="day-tab-btn px-6 py-3 rounded-xl text-xs font-extrabold tracking-wider uppercase text-slate-300 hover:text-white transition">Día 3 (Dom)</button>
+                </div>
+            </div>
+
+            <!-- Contenedor del Cronograma en Escenarios -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Escenario Principal ECHOES -->
+                <div class="lg:col-span-4 bg-psy-deepViolet/30 p-6 rounded-3xl border border-psy-neonPink/30 shadow-md">
+                    <div class="flex items-center justify-between border-b border-psy-neonPink/20 pb-4 mb-6">
+                        <h3 class="font-display font-bold text-white text-base tracking-wide flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-psy-neonPink animate-pulse shadow-neon-pink"></span>
+                            Escenario Principal ECHOES
+                        </h3>
+                        <span class="text-[10px] uppercase font-extrabold tracking-widest text-psy-neonPink bg-psy-neonPink/10 px-3 py-1 rounded-full border border-psy-neonPink/20">Principal</span>
+                    </div>
+                    <div class="space-y-4" id="schedule-stage-main">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Escenario El Domo -->
+                <div class="lg:col-span-4 bg-psy-deepViolet/30 p-6 rounded-3xl border border-psy-electricCyan/30 shadow-md">
+                    <div class="flex items-center justify-between border-b border-psy-electricCyan/20 pb-4 mb-6">
+                        <h3 class="font-display font-bold text-white text-base tracking-wide flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-psy-electricCyan animate-pulse shadow-neon-cyan"></span>
+                            El Domo Astral
+                        </h3>
+                        <span class="text-[10px] uppercase font-extrabold tracking-widest text-psy-electricCyan bg-psy-electricCyan/10 px-3 py-1 rounded-full border border-psy-electricCyan/20">Alternativo</span>
+                    </div>
+                    <div class="space-y-4" id="schedule-stage-dome">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Escenario Espacio Bosque -->
+                <div class="lg:col-span-4 bg-psy-deepViolet/30 p-6 rounded-3xl border border-psy-acidLime/30 shadow-md">
+                    <div class="flex items-center justify-between border-b border-psy-acidLime/20 pb-4 mb-6">
+                        <h3 class="font-display font-bold text-white text-base tracking-wide flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-psy-acidLime animate-pulse shadow-neon-lime"></span>
+                            Espacio Bosque Sagrado
+                        </h3>
+                        <span class="text-[10px] uppercase font-extrabold tracking-widest text-psy-acidLime bg-psy-acidLime/10 px-3 py-1 rounded-full border border-psy-acidLime/20">Ambiental</span>
+                    </div>
+                    <div class="space-y-4" id="schedule-stage-forest">
+                        <!-- Inyectado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="py-24 bg-void-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Presentación de la experiencia -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs uppercase tracking-[0.3em] font-extrabold text-psy-neonPink">Atardecer Fluo Perpetuo</span>
+                    <h2 class="font-display text-4xl md:text-5xl font-black text-white leading-tight">Siente el Aftermovie Oficial</h2>
+                    <p class="text-slate-200 text-sm md:text-base font-light leading-relaxed">
+                        Explora la convergencia estética de luces LED interactivas proyectadas en árboles nativos, sonidos binaurales y una danza colectiva bajo el cielo estrellado de las Sierras de Rocha.
+                    </p>
+                    <div class="border-l-4 border-psy-neonPink pl-4 space-y-2 bg-psy-deepViolet/20 p-4 rounded-r-xl border border-white/5">
+                        <p class="text-xs text-psy-neonPink uppercase tracking-widest font-extrabold">Experiencia de Alta Fidelidad</p>
+                        <p class="text-sm italic text-slate-100">"El latido místico de la tierra sincronizado con nuestros sintetizadores."</p>
+                    </div>
+                </div>
+
+                <!-- Video Promocional Integrado (Consigna técnica) -->
+                <div class="lg:col-span-7">
+                    <div class="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-void-900 border-2 border-psy-electricCyan/50 group shadow-neon-cyan">
+                        
+                        <!-- Portada Estética / Lanzador de Video -->
+                        <div id="video-placeholder" class="absolute inset-0 z-10 flex flex-col items-center justify-center bg-cover bg-center transition-all duration-500" 
+                             style="background-image: linear-gradient(rgba(15,6,31,0.65), rgba(15,6,31,0.65)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80')">
+                            
+                            <button onclick="playFestivalVideo()" class="bg-gradient-to-r from-psy-neonPink to-psy-electricCyan text-void-950 p-6 rounded-full hover:scale-110 hover:shadow-neon-pink transition-all duration-300 shadow-xl flex items-center justify-center" aria-label="Reproducir video oficial de ECHOES">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8 transform translate-x-0.5 text-void-950">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </button>
+                            <span class="mt-4 text-xs tracking-[0.25em] uppercase text-white font-extrabold text-neon-glow">Reproducir Aftermovie Promocional</span>
+                        </div>
+                        
+                        <!-- Video Iframe -->
+                        <iframe id="festival-video" class="w-full h-full hidden" 
+                                src="" 
+                                title="ECHOES Festival Promocional 2026" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galería de Fotos (Consigna de imágenes cargadas) -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative aspect-square rounded-2xl overflow-hidden border border-psy-neonPink/20 group shadow-md hover:shadow-neon-pink">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80" alt="Danza al atardecer" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-void-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-xs uppercase tracking-widest font-extrabold text-psy-neonPink">Atardecer Fluo</span>
+                    </div>
+                </div>
+                <div class="relative aspect-square rounded-2xl overflow-hidden border border-psy-electricCyan/20 group shadow-md hover:shadow-neon-cyan">
+                    <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=600&q=80" alt="Escenario de luces de neón" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-void-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-xs uppercase tracking-widest font-extrabold text-psy-electricCyan">Escenario Principal</span>
+                    </div>
+                </div>
+                <div class="relative aspect-square rounded-2xl overflow-hidden border border-psy-acidLime/20 group shadow-md hover:shadow-neon-lime">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Luces estroboscópicas" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-void-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-xs uppercase tracking-widest font-extrabold text-psy-acidLime">Domo Láser</span>
+                    </div>
+                </div>
+                <div class="relative aspect-square rounded-2xl overflow-hidden border border-psy-sunsetGold/20 group shadow-md hover:shadow-orange-500/20">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=600&q=80" alt="Zona de campamento sustentable" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-void-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-xs uppercase tracking-widest font-extrabold text-psy-sunsetGold">Eco Glamping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ubicacion" class="py-24 bg-void-900 border-t border-psy-neonPink/15 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Información física de accesos -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.3em] font-extrabold text-psy-acidLime">Ubicación Orgánica</span>
+                        <h2 class="font-display text-4xl md:text-5xl font-black text-white mt-2">Sierras de Rocha</h2>
+                        <div class="w-20 h-1 bg-psy-acidLime mt-4 rounded-full"></div>
+                    </div>
+                    
+                    <p class="text-slate-200 text-sm leading-relaxed font-light font-sans">
+                        La mística geografía de las Sierras de Rocha en Uruguay será el epicentro del sonido consciente. Un santuario rodeado de cañadas de agua pura, montes nativos protectores y noches despejadas ideales para el arte lumínico.
+                    </p>
+
+                    <!-- Tarjetas de Información de Transporte -->
+                    <div class="space-y-4 text-xs text-slate-300">
+                        <div class="flex items-center gap-4 bg-psy-deepViolet/40 p-4 rounded-2xl border border-white/5">
+                            <span class="text-psy-neonPink bg-psy-neonPink/10 p-2.5 rounded-xl border border-psy-neonPink/20">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                </svg>
+                            </span>
+                            <span>Kilómetro 204, Ruta Nacional 109, Sierras de Rocha, Uruguay</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-psy-deepViolet/40 p-4 rounded-2xl border border-white/5">
+                            <span class="text-psy-electricCyan bg-psy-electricCyan/10 p-2.5 rounded-xl border border-psy-electricCyan/20">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25" />
+                                </svg>
+                            </span>
+                            <span>Colectivos especiales directos desde Terminal Rocha, Punta del Este y Montevideo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano de Distribución Interactivo (Consigna de Mapa del Lugar) -->
+                <div class="lg:col-span-7">
+                    <div class="bg-psy-deepViolet/30 p-6 rounded-[2rem] border border-psy-neonPink/30 shadow-2xl space-y-6">
+                        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                            <h3 class="font-display font-bold text-white text-sm uppercase tracking-wider">Mapa Interactivo del Predio</h3>
+                            <span class="text-[9px] text-psy-electricCyan font-extrabold uppercase tracking-widest bg-psy-electricCyan/10 px-3 py-1.5 rounded-full border border-psy-electricCyan/20 shadow-neon-cyan">Interactivo</span>
+                        </div>
+                        
+                        <!-- Contenedor del Mapa Vectorial con Nodos de Pulsación -->
+                        <div class="relative aspect-[4/3] bg-void-950 border border-white/10 rounded-2xl overflow-hidden flex items-center justify-center group shadow-inner">
+                            
+                            <!-- Dibujo topográfico abstracto en SVG -->
+                            <svg class="absolute inset-0 w-full h-full opacity-40 pointer-events-none" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M-50 200 C100 150, 200 250, 450 120" stroke="#ff007f" stroke-width="1.5" stroke-dasharray="6 6" />
+                                <path d="M-50 100 C150 50, 180 290, 450 220" stroke="#00f0ff" stroke-width="1.2" />
+                                <path d="M100 -50 C220 110, 80 180, 210 350" stroke="#b5ff00" stroke-width="4" opacity="0.25" />
+                            </svg>
+
+                            <!-- Pines interactivos con hover llamativo -->
+                            <div class="absolute top-[28%] left-[25%] group/pin cursor-pointer text-center" onclick="showToast('📍 Escenario Principal ECHOES: Equipado con pantallas holográficas')">
+                                <span class="block w-6 h-6 rounded-full bg-psy-neonPink border-4 border-void-950 shadow-neon-pink animate-bounce"></span>
+                                <span class="bg-void-900 border border-psy-neonPink/40 text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full text-white mt-1.5 block">Escenario ECHOES</span>
+                            </div>
+
+                            <div class="absolute top-[62%] left-[68%] group/pin cursor-pointer text-center" onclick="showToast('📍 Domo Astral: Clases de yoga de día y Techno Melódico de noche')">
+                                <span class="block w-6 h-6 rounded-full bg-psy-electricCyan border-4 border-void-950 shadow-neon-cyan animate-pulse"></span>
+                                <span class="bg-void-900 border border-psy-electricCyan/40 text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full text-white mt-1.5 block">El Domo</span>
+                            </div>
+
+                            <div class="absolute top-[48%] left-[12%] group/pin cursor-pointer text-center" onclick="showToast('📍 Eco Glamping: Energía solar y sanitarios ecológicos premium')">
+                                <span class="block w-6 h-6 rounded-full bg-psy-acidLime border-4 border-void-950 shadow-neon-lime"></span>
+                                <span class="bg-void-900 border border-psy-acidLime/40 text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full text-white mt-1.5 block">Eco Glamping</span>
+                            </div>
+
+                            <div class="absolute top-[18%] left-[82%] group/pin cursor-pointer text-center" onclick="showToast('📍 Acceso & Acreditaciones: Puerta principal de ingreso')">
+                                <span class="block w-6 h-6 rounded-full bg-psy-sunsetGold border-4 border-void-950 shadow-md"></span>
+                                <span class="bg-void-900 border border-psy-sunsetGold/40 text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full text-white mt-1.5 block">Ingreso</span>
+                            </div>
+                        </div>
+
+                        <p class="text-[11px] text-slate-400 text-center italic font-sans">Haz clic en los puntos interactivos del mapa del predio para explorar los servicios de cada zona.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="entradas" class="py-24 bg-void-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] font-extrabold text-psy-neonPink">Asegura tu Ingreso al Portal</span>
+                <h2 class="font-display text-4xl md:text-5xl font-black text-white mt-2">Pases & Cotizador</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-psy-neonPink to-psy-electricCyan mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-300 text-sm mt-4 font-light">Calcula el costo total de tus entradas agregando servicios adicionales de campamento. Obtén descuentos por transferencia directa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Tarifas Detalladas -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Pase General -->
+                    <div class="bg-psy-deepViolet/30 p-6 rounded-2xl border border-psy-neonPink/20 relative overflow-hidden group shadow-md">
+                        <div class="absolute top-0 right-0 bg-psy-neonPink text-white text-[9px] uppercase tracking-wider font-extrabold px-3 py-1 rounded-bl-xl shadow-neon-pink">Más Popular</div>
+                        <h4 class="font-display font-bold text-lg text-white uppercase tracking-wider">Abono General 3 Días</h4>
+                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Acceso a los 3 escenarios del bosque, patio de talleres artísticos y sector general de acampe.</p>
+                        <p class="font-display text-2xl font-extrabold text-psy-neonPink mt-4">$18.500 <span class="text-xs text-slate-400 font-light font-sans">UYU</span></p>
+                    </div>
+
+                    <!-- Pase VIP -->
+                    <div class="bg-psy-deepViolet/30 p-6 rounded-2xl border border-psy-electricCyan/20 relative overflow-hidden group shadow-md">
+                        <h4 class="font-display font-bold text-lg text-white uppercase tracking-wider">Abono VIP Místico</h4>
+                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Ingreso preferente, sanitarios ecológicos premium, barras de autor y acceso a terrazas de descanso elevadas.</p>
+                        <p class="font-display text-2xl font-extrabold text-psy-electricCyan mt-4">$32.000 <span class="text-xs text-slate-400 font-light font-sans">UYU</span></p>
+                    </div>
+
+                    <!-- Pase Diario -->
+                    <div class="bg-psy-deepViolet/30 p-6 rounded-2xl border border-psy-acidLime/20 relative overflow-hidden group shadow-md">
+                        <h4 class="font-display font-bold text-lg text-white uppercase tracking-wider">Ticket Diario Indivudual</h4>
+                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">Pase individual válido para un único día de tu elección (Día 1, Día 2 o Día 3).</p>
+                        <p class="font-display text-2xl font-extrabold text-psy-acidLime mt-4">$8.200 <span class="text-xs text-slate-400 font-light font-sans">UYU</span></p>
+                    </div>
+                </div>
+
+                <!-- Simulador de Ventas de Alta Fidelidad ( Checkout por WhatsApp ) -->
+                <div class="lg:col-span-7 bg-psy-deepViolet/35 p-8 rounded-[2.5rem] border border-psy-electricCyan/30 shadow-2xl">
+                    <h3 class="font-display text-2xl font-bold text-white mb-6 bg-gradient-to-r from-psy-neonPink to-psy-electricCyan bg-clip-text text-transparent">Cotizador en Tiempo Real</h3>
+                    
+                    <form id="ticket-calculator-form" onsubmit="submitTicketOrder(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Tipo de Entrada -->
+                            <div>
+                                <label for="ticket-type" class="block text-xs font-bold uppercase text-slate-300 mb-2 font-mono">Pase a Cotizar</label>
+                                <select id="ticket-type" onchange="calculateTicketTotal()" class="w-full bg-void-900 border border-white/10 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-psy-neonPink text-slate-200">
+                                    <option value="general" data-price="18500">Abono General (3 Días) - $18.500</option>
+                                    <option value="vip" data-price="32000">Abono VIP (3 Días) - $32.000</option>
+                                    <option value="daily" data-price="8200">Ticket Diario (1 Día) - $8.200</option>
+                                </select>
+                            </div>
+
+                            <!-- Cantidad -->
+                            <div>
+                                <label for="ticket-qty" class="block text-xs font-bold uppercase text-slate-300 mb-2 font-mono">Número de Personas</label>
+                                <input type="number" id="ticket-qty" min="1" max="15" value="1" oninput="calculateTicketTotal()" class="w-full bg-void-900 border border-white/10 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-psy-neonPink text-slate-200">
+                            </div>
+                        </div>
+
+                        <!-- Adicionales de Campamento Sostenible -->
+                        <div class="bg-void-950 p-4 rounded-xl border border-white/5">
+                            <p class="text-xs font-bold uppercase text-slate-300 mb-3 font-mono">Servicio Adicional Colectivo</p>
+                            <div class="flex items-center justify-between">
+                                <label class="flex items-center gap-3 text-xs text-slate-200 cursor-pointer">
+                                    <input type="checkbox" id="add-glamping" onchange="calculateTicketTotal()" class="rounded bg-void-900 border-white/10 text-psy-neonPink focus:ring-0">
+                                    Añadir Pack Eco-Glamping de Luces (+$7.500 total)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Resumen Detallado del Simulador -->
+                        <div class="bg-void-950 p-5 rounded-2xl border border-white/5 space-y-3 font-mono">
+                            <div class="flex justify-between items-center text-xs text-slate-400">
+                                <span>Valor Base:</span>
+                                <span id="summary-base">$0 UYU</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-slate-400">
+                                <span>Adicional de Campamento:</span>
+                                <span id="summary-extra">$0 UYU</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-psy-acidLime">
+                                <span>Bonificación por Transferencia (-10%):</span>
+                                <span id="summary-discount">-$0 UYU</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm font-bold text-white border-t border-white/10 pt-3">
+                                <span>Monto Neto Total Estimado:</span>
+                                <span id="summary-total" class="text-xl text-psy-neonPink font-display">$0 UYU</span>
+                            </div>
+                        </div>
+
+                        <!-- Identidad del Comprador -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="buyer-name" class="block text-xs font-bold uppercase text-slate-300 mb-2 font-mono">Tu Nombre Completo</label>
+                                <input type="text" id="buyer-name" required class="w-full bg-void-900 border border-white/10 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-psy-neonPink text-slate-200" placeholder="Ej: Valentina Cabrera">
+                            </div>
+                            <div>
+                                <label for="buyer-email" class="block text-xs font-bold uppercase text-slate-300 mb-2 font-mono">Correo de Contacto</label>
+                                <input type="email" id="buyer-email" required class="w-full bg-void-900 border border-white/10 rounded-xl py-3 px-4 text-sm focus:outline-none focus:border-psy-neonPink text-slate-200" placeholder="valentina@correo.com">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-psy-neonPink via-psy-sunsetGold to-psy-acidLime text-void-950 py-4 rounded-xl font-extrabold tracking-wider hover:opacity-95 transition duration-300 uppercase flex items-center justify-center gap-2 shadow-neon-pink">
+                            <span>Solicitar Reserva por WhatsApp</span>
+                            <!-- Icono de WhatsApp -->
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.249 8.477 3.513 2.266 2.265 3.51 5.275 3.51 8.474-.005 6.66-5.341 11.998-11.95 11.998-2.005-.001-3.973-.503-5.714-1.463L0 24zm6.59-4.846c1.6.95 3.198 1.451 4.821 1.452 5.424 0 9.835-4.412 9.84-9.835.002-2.628-1.02-5.1-2.881-6.963C16.565 1.956 14.1 1.05 11.72 1.05c-5.43 0-9.843 4.413-9.848 9.837-.002 1.8.484 3.55 1.408 5.11L2.275 21.73l6.372-1.576z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-psy-deepViolet text-slate-300 py-16 border-t border-white/10 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <span class="font-display text-3xl font-black tracking-tight text-white">ECHOES</span>
+                <p class="text-xs text-slate-300 leading-relaxed font-light">Elegancia psicodélica y comunión acústica en las Sierras de Rocha. Tres jornadas memorables de arte y sustentabilidad.</p>
+            </div>
+            <div>
+                <h4 class="font-display text-white font-extrabold mb-4 uppercase tracking-wider text-xs">Secciones principales</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#lineup" class="hover:text-psy-neonPink transition">Cartelera de Artistas</a></li>
+                    <li><a href="#horarios" class="hover:text-psy-electricCyan transition">Cronogramas de Shows</a></li>
+                    <li><a href="#experiencia" class="hover:text-psy-acidLime transition">Aftermovie del Bosque</a></li>
+                    <li><a href="#ubicacion" class="hover:text-psy-sunsetGold transition">Entorno del Predio</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-display text-white font-extrabold mb-4 uppercase tracking-wider text-xs">Enlaces Académicos</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#entradas" class="hover:text-psy-neonPink transition">Cotizador de Abonos</a></li>
+                    <li><a href="#ubicacion" class="hover:text-psy-electricCyan transition">Accesibilidad y Logística</a></li>
+                    <li><a href="#academic-modal" onclick="toggleAcademicInfo()" class="hover:text-psy-acidLime transition">Rúbrica de la Entrega</a></li>
+                    <li><a href="#entradas" class="hover:text-psy-sunsetGold transition">Políticas Ambientales</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-display text-white font-extrabold mb-4 uppercase tracking-wider text-xs">Evaluación Académica</h4>
+                <p class="text-xs font-light leading-relaxed">
+                    Exhibición de desarrollo web responsivo de alta fidelidad. 
+                    Pizarras de entrega evaluada: <span class="italic text-psy-acidLime">WhatsApp Image 2026-07-13 at 2.52.27 PM_2.jpeg</span> y <span class="italic text-psy-acidLime">WhatsApp Image 2026-07-15 at 10.15.55 PM.jpeg</span>.
+                </p>
+                <div class="mt-4 pt-4 border-t border-white/5 text-[10px] text-slate-500">
+                    © 2026 ECHOES Festival. Maquetación para Fines Evaluativos Semestrales.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Mi Itinerario Favorito -->
+    <div id="schedule-modal" class="fixed inset-0 bg-void-950/95 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-psy-deepViolet text-slate-100 rounded-3xl max-w-lg w-full p-6 md:p-8 shadow-2xl border border-psy-neonPink/40">
+            <div class="flex justify-between items-start border-b border-white/10 pb-4 mb-4">
+                <h3 class="font-display text-xl font-bold text-psy-neonPink flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5 text-psy-neonPink shadow-neon-pink">
+                        <path d="M11.48 3.499c.173-.434.767-.434.94 0l1.847 3.743 4.12.599c.479.069.67.659.322.996l-2.982 2.906.704 4.104c.083.48-.42.847-.85.566L12 14.193l-3.693 1.942c-.43.226-.933-.14-.85-.566l.704-4.104-2.982-2.906c-.348-.337-.158-.927.322-.996l4.12-.599 1.847-3.743z" />
+                    </svg>
+                    Mi Itinerario Personalizado
+                </h3>
+                <button onclick="toggleMyScheduleModal()" class="text-2xl text-slate-400 hover:text-white">&times;</button>
+            </div>
+            
+            <div id="fav-schedule-list" class="space-y-3 max-h-[50vh] overflow-y-auto pr-2">
+                <!-- Se inyectan dinámicamente los favoritos del usuario -->
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex flex-col gap-2">
+                <button onclick="shareMySchedule()" class="w-full bg-gradient-to-r from-psy-neonPink to-psy-electricCyan text-void-950 py-3.5 rounded-xl font-extrabold text-xs uppercase tracking-wider hover:opacity-95 transition shadow-neon-pink">Compartir Itinerario vía WhatsApp</button>
+                <button onclick="toggleMyScheduleModal()" class="w-full text-center text-xs text-slate-400 hover:text-white py-2 font-mono">Volver al Cronograma General</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalle Artista / Bio & Vista Previa Escucha -->
+    <div id="artist-modal" class="fixed inset-0 bg-void-950/90 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-psy-deepViolet rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-psy-electricCyan/40">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="relative aspect-square md:aspect-auto md:h-full min-h-[250px]">
+                    <img id="artist-modal-image" src="" alt="Artista del festival" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 md:p-8 flex flex-col justify-between space-y-6">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <span id="artist-modal-genre" class="text-[9px] uppercase tracking-widest text-psy-electricCyan font-extrabold bg-psy-electricCyan/10 px-2.5 py-1 rounded-full border border-psy-electricCyan/20">Estilo</span>
+                            <button onclick="closeArtistModal()" class="text-2xl text-slate-400 hover:text-white leading-none">&times;</button>
+                        </div>
+                        <h3 id="artist-modal-name" class="font-display text-2xl font-black text-white mt-3">Nombre del Artista</h3>
+                        <p id="artist-modal-bio" class="text-xs text-slate-300 leading-relaxed font-light mt-4 font-sans">Biografía del artista del festival.</p>
+                    </div>
+
+                    <!-- Reproductor de Pista Simulado (Consigna: Videos musicales/audio) -->
+                    <div class="mt-auto p-4 bg-void-900 rounded-2xl border border-white/5">
+                        <div class="flex items-center gap-4">
+                            <button id="modal-play-audio-btn" onclick="toggleSimulatedAudio()" class="bg-psy-neonPink text-white p-3 rounded-full hover:scale-105 hover:bg-psy-neonPink/90 transition shadow-neon-pink flex items-center justify-center">
+                                <svg id="audio-play-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 text-white">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <svg id="audio-pause-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 hidden text-white">
+                                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                                </svg>
+                            </button>
+                            <div class="flex-1 overflow-hidden">
+                                <p class="text-[9px] uppercase font-bold text-psy-neonPink tracking-wider font-mono">Escucha un Adelanto Exclusivo</p>
+                                <p id="audio-track-title" class="text-xs text-white font-medium truncate font-sans">Cargando canción...</p>
+                                <!-- Barra de progreso dinámico -->
+                                <div class="w-full bg-psy-deepViolet h-1 rounded-full mt-2 overflow-hidden">
+                                    <div id="audio-progress-bar" class="bg-gradient-to-r from-psy-neonPink to-psy-electricCyan h-full w-0 transition-all duration-300"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor del Sistema de Notificaciones Toasts -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 space-y-2 pointer-events-none"></div>
+
+
+    <script>
+        // Catálogo estructurado de Artistas con sus fotos, bios y temas en Español
+        const artists = [
+            {
+                id: 1,
+                name: "Sven Väth (Melodic Set)",
+                genre: "Live Set",
+                image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80",
+                bio: "La legendaria figura de Frankfurt aterriza en ECHOES para ofrecer un set extendido de 3 horas. Fusionará el techno melódico e introspectivo con la mística forestal.",
+                track: "Sven Väth - Ecos en la Sierra (Mezcla de Pruebas 2026)"
+            },
+            {
+                id: 2,
+                name: "The Organic Folk Club",
+                genre: "Indie Folk",
+                image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80",
+                bio: "Creadores de atmósferas acústicas y folclóricas con instrumentaciones analógicas y grabaciones puras de sonidos de cañadas y pájaros.",
+                track: "The Organic Folk Club - Amanecer en Rocha"
+            },
+            {
+                id: 3,
+                name: "Anjunadeep Soundscapes",
+                genre: "Organic House",
+                image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=600&q=80",
+                bio: "El prestigioso sello de renombre mundial presentará una curaduría sonora espacial de ritmos profundos ideales para sintonizar con la naturaleza.",
+                track: "Anjunadeep - Bosques Sagrados (Original Mix)"
+            },
+            {
+                id: 4,
+                name: "Nativa Beats",
+                genre: "Organic House",
+                image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80",
+                bio: "Agrupación rítmica que fusiona tambores autóctonos con sintetizadores analógicos modulares, logrando un ambiente salvaje y bailable.",
+                track: "Nativa Beats - Tambores de Rocha"
+            },
+            {
+                id: 5,
+                name: "Lumineer Trio",
+                genre: "Indie Folk",
+                image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80",
+                bio: "Trío acústico que deleitará con cuerdas melancólicas, historias cantadas al fuego de la comunidad del festival y fogatas.",
+                track: "Lumineer Trio - Destellos Fluorescentes"
+            },
+            {
+                id: 6,
+                name: "Klangkarussell Live",
+                genre: "Live Set",
+                image: "https://images.unsplash.com/photo-1471967183320-ee018f6e11cd?auto=format&fit=crop&w=600&q=80",
+                bio: "El célebre dúo austríaco traerá su aclamada performance en vivo que incorpora instrumentos de viento reales y ritmos electrónicos sofisticados.",
+                track: "Klangkarussell - Ecos de Sol (Live Session)"
+            }
+        ];
+
+        // Lógica de Presentaciones del Cronograma
+        const schedule = [
+            // DÍA 1
+            { id: 101, day: 1, stage: "main", time: "18:00 - 19:30", artist: "Lumineer Trio" },
+            { id: 102, day: 1, stage: "main", time: "20:00 - 22:00", artist: "The Organic Folk Club" },
+            { id: 103, day: 1, stage: "dome", time: "19:00 - 21:00", artist: "Nativa Beats" },
+            { id: 104, day: 1, stage: "dome", time: "22:00 - 00:00", artist: "Anjunadeep Soundscapes" },
+            { id: 105, day: 1, stage: "forest", time: "17:00 - 19:00", artist: "Sesión Ambiental de Relajación" },
+            { id: 106, day: 1, stage: "forest", time: "20:00 - 23:00", artist: "Meditación Guiada con Gongs" },
+
+            // DÍA 2
+            { id: 201, day: 2, stage: "main", time: "19:00 - 21:00", artist: "Klangkarussell Live" },
+            { id: 202, day: 2, stage: "main", time: "22:00 - 01:00", artist: "Sven Väth (Melodic Set)" },
+            { id: 203, day: 2, stage: "dome", time: "18:00 - 20:00", artist: "Trío de Percusión Orgánica" },
+            { id: 204, day: 2, stage: "dome", time: "21:00 - 23:30", artist: "Nativa Beats (Set Especial)" },
+            { id: 205, day: 2, stage: "forest", time: "16:00 - 18:30", artist: "Paisajes Sonoros del Monte" },
+            { id: 206, day: 2, stage: "forest", time: "19:30 - 22:00", artist: "Guitarras Acústicas de Atardecer" },
+
+            // DÍA 3
+            { id: 301, day: 3, stage: "main", time: "17:30 - 19:30", artist: "The Organic Folk Club" },
+            { id: 302, day: 3, stage: "main", time: "20:00 - 23:00", artist: "Orquesta de Cierre ECHOES" },
+            { id: 303, day: 3, stage: "dome", time: "18:00 - 20:30", artist: "Anjunadeep Soundscapes" },
+            { id: 304, day: 3, stage: "dome", time: "21:00 - 23:30", artist: "Sapiens Techno Set" },
+            { id: 305, day: 3, stage: "forest", time: "15:00 - 18:00", artist: "Círculo de Tambores Chamánicos" },
+            { id: 306, day: 3, stage: "forest", time: "19:00 - 21:30", artist: "Baño de Sonido Integral" }
+        ];
+
+        // Estado Dinámico de la Aplicación en Memoria
+        let activeLineupFilter = "all";
+        let activeDayTab = 1;
+        let favoriteScheduleIds = [];
+        let simulatedAudioInterval = null;
+        let isAudioPlaying = false;
+
+        // Iniciar Eventos y Renderizado Inicial
+        window.onload = function() {
+            renderLineup();
+            renderSchedule();
+            calculateTicketTotal();
+            startCountdown();
+        };
+
+        function renderLineup() {
+            const grid = document.getElementById("artists-grid");
+            grid.innerHTML = "";
+
+            let filtered = artists;
+            if (activeLineupFilter !== "all") {
+                filtered = artists.filter(a => a.genre === activeLineupFilter);
+            }
+
+            filtered.forEach(artist => {
+                const card = document.createElement("div");
+                card.className = "bg-psy-deepViolet/30 rounded-2xl overflow-hidden shadow-lg hover:shadow-neon-pink/25 hover:-translate-y-1 transition duration-300 border border-white/5 flex flex-col justify-between";
+                card.innerHTML = `
+                    <div class="relative aspect-square overflow-hidden bg-void-950 cursor-pointer group" onclick="openArtistModal(${artist.id})">
+                        <img src="${artist.image}" alt="${artist.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-void-950/20 hover:bg-void-950/40 transition"></div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div>
+                            <span class="text-[9px] uppercase tracking-widest font-extrabold text-psy-electricCyan bg-psy-electricCyan/10 px-2.5 py-1 rounded-full border border-psy-electricCyan/20">${artist.genre}</span>
+                            <h3 class="font-display text-xl font-black text-white mt-3 cursor-pointer hover:text-psy-neonPink transition" onclick="openArtistModal(${artist.id})">${artist.name}</h3>
+                        </div>
+                        <p class="text-xs text-slate-300 line-clamp-2 font-light font-sans">${artist.bio}</p>
+                        <div class="pt-3 border-t border-white/5 flex justify-between items-center">
+                            <button onclick="openArtistModal(${artist.id})" class="text-xs font-bold uppercase tracking-wider text-psy-neonPink hover:text-white transition">Bio & Escucha Exclusiva →</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtro de Categorías de Artistas
+        function filterLineup(genre) {
+            activeLineupFilter = genre;
+            const buttons = document.querySelectorAll(".lineup-filter-btn");
+            buttons.forEach(btn => {
+                btn.className = "lineup-filter-btn px-6 py-3 rounded-full text-xs font-extrabold tracking-wider uppercase bg-psy-deepViolet/80 text-slate-200 border border-white/10 hover:border-psy-neonPink transition";
+            });
+
+            // Establecer botón activo de forma estética
+            const activeBtn = event ? event.target : document.getElementById("btn-lineup-all");
+            if (activeBtn) {
+                activeBtn.className = "lineup-filter-btn active px-6 py-3 rounded-full text-xs font-extrabold tracking-wider uppercase bg-psy-neonPink text-white shadow-neon-pink transition";
+            }
+            renderLineup();
+        }
+
+        function renderSchedule() {
+            const stages = ["main", "dome", "forest"];
+            
+            stages.forEach(stage => {
+                const container = document.getElementById(`schedule-stage-${stage}`);
+                container.innerHTML = "";
+
+                const filteredItems = schedule.filter(item => item.day === activeDayTab && item.stage === stage);
+
+                filteredItems.forEach(show => {
+                    const isFav = favoriteScheduleIds.includes(show.id);
+                    const showCard = document.createElement("div");
+                    showCard.className = `p-4 rounded-2xl border transition-all ${
+                        isFav 
+                        ? "bg-psy-neonPink/15 border-psy-neonPink/50 shadow-neon-pink" 
+                        : "bg-void-900/80 border-white/5 hover:border-psy-electricCyan/40"
+                    } flex justify-between items-center gap-4`;
+
+                    showCard.innerHTML = `
+                        <div>
+                            <p class="text-[10px] font-bold tracking-widest uppercase text-psy-electricCyan font-mono">${show.time}</p>
+                            <h4 class="font-display font-bold text-sm text-white mt-1">${show.artist}</h4>
+                        </div>
+                        <button onclick="toggleFavoriteShow(${show.id})" class="text-slate-400 hover:text-psy-neonPink p-2 transition" aria-label="Agregar show a favoritos">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="${isFav ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5 ${isFav ? 'text-psy-neonPink shadow-neon-pink' : 'text-slate-400 hover:text-psy-neonPink'}">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c.173-.434.767-.434.94 0l1.847 3.743 4.12.599c.479.069.67.659.322.996l-2.982 2.906.704 4.104c.083.48-.42.847-.85.566L12 14.193l-3.693 1.942c-.43.226-.933-.14-.85-.566l.704-4.104-2.982-2.906c-.348-.337-.158-.927.322-.996l4.12-.599 1.847-3.743z" />
+                            </svg>
+                        </button>
+                    `;
+                    container.appendChild(showCard);
+                });
+            });
+        }
+
+        // Lógica de Cambio de Día
+        function setActiveDay(dayNum) {
+            activeDayTab = dayNum;
+            const buttons = document.querySelectorAll(".day-tab-btn");
+            buttons.forEach(btn => {
+                btn.className = "day-tab-btn px-6 py-3 rounded-xl text-xs font-extrabold tracking-wider uppercase text-slate-300 hover:text-white transition";
+            });
+            document.getElementById(`day-tab-${dayNum}`).className = "day-tab-btn active px-6 py-3 rounded-xl text-xs font-extrabold tracking-wider uppercase bg-psy-neonPink text-white shadow-neon-pink transition";
+            renderSchedule();
+        }
+
+        function toggleFavoriteShow(showId) {
+            const index = favoriteScheduleIds.indexOf(showId);
+            const showObj = schedule.find(s => s.id === showId);
+
+            if (index === -1) {
+                favoriteScheduleIds.push(showId);
+                showToast(`✨ ¡Show Agregado!: ${showObj.artist}`);
+            } else {
+                favoriteScheduleIds.splice(index, 1);
+                showToast(`❌ Eliminado de tu itinerario: ${showObj.artist}`);
+            }
+
+            updateFavoriteBadge();
+            renderSchedule();
+            renderFavoriteScheduleModalList();
+        }
+
+        // Actualizar indicador del menú de navegación
+        function updateFavoriteBadge() {
+            const badge = document.getElementById("fav-badge");
+            const count = favoriteScheduleIds.length;
+            if (count > 0) {
+                badge.innerText = count;
+                badge.classList.remove("hidden");
+            } else {
+                badge.classList.add("hidden");
+            }
+        }
+
+        // Renderizar favoritos en el modal flotante
+        function renderFavoriteScheduleModalList() {
+            const container = document.getElementById("fav-schedule-list");
+            container.innerHTML = "";
+
+            if (favoriteScheduleIds.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 space-y-3">
+                        <p class="text-slate-400 text-sm">Aún no has agregado conciertos favoritos.</p>
+                        <p class="text-[11px] text-slate-500 font-light font-sans">Explora el cronograma interactivo por días y toca el icono de estrella para armar tu itinerario psicodélico de conciertos.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            favoriteScheduleIds.forEach(id => {
+                const show = schedule.find(s => s.id === id);
+                const item = document.createElement("div");
+                item.className = "bg-void-950 p-4 rounded-xl border border-white/5 flex justify-between items-center";
+                item.innerHTML = `
+                    <div>
+                        <p class="text-[9px] uppercase tracking-widest font-extrabold text-psy-acidLime font-mono">Día ${show.day} | ${show.time}</p>
+                        <h4 class="font-display font-bold text-xs text-white mt-0.5">${show.artist}</h4>
+                        <p class="text-[9px] text-slate-400 uppercase mt-0.5 font-mono">${show.stage === "main" ? "Escenario Principal" : show.stage === "dome" ? "El Domo Astral" : "Bosque Sagrado"}</p>
+                    </div>
+                    <button onclick="toggleFavoriteShow(${show.id})" class="text-psy-neonPink hover:text-white text-xs font-bold font-mono">Eliminar</button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Abrir/Cerrar Itinerario Personal
+        function toggleMyScheduleModal() {
+            const modal = document.getElementById("schedule-modal");
+            modal.classList.toggle("hidden");
+            renderFavoriteScheduleModalList();
+        }
+
+        // Compartir el Cronograma personalizado mediante WhatsApp
+        function shareMySchedule() {
+            if (favoriteScheduleIds.length === 0) {
+                showToast("⚠️ Agrega al menos un concierto para poder compartir.");
+                return;
+            }
+
+            let text = "✨ *MI ITINERARIO PERSONAL DE ECHOES 2026* ✨\n\n";
+            text += "¡Hola! Mira los conciertos que organicé para vivir en las Sierras de Rocha:\n\n";
+
+            favoriteScheduleIds.forEach(id => {
+                const show = schedule.find(s => s.id === id);
+                text += `📅 *Día ${show.day}* | 🕒 *${show.time}*\n🎙️ *${show.artist}* (${show.stage === "main" ? "Principal" : show.stage === "dome" ? "Domo" : "Bosque"})\n\n`;
+            });
+
+            text += "🌲 *Únete al viaje:* Sierras de Rocha, 11-13 de Diciembre.";
+            
+            const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+            window.open(url, "_blank");
+        }
+
+        // Cuenta Regresiva Realista
+        function startCountdown() {
+            const targetDate = new Date("December 11, 2026 15:00:00").getTime();
+            
+            function update() {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+
+                if (diff < 0) {
+                    document.getElementById("countdown-container").innerHTML = "<p class='col-span-4 text-center font-display text-psy-neonPink font-extrabold'>¡El portal al festival se ha abierto!</p>";
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("count-days").innerText = days.toString().padStart(2, "0");
+                document.getElementById("count-hours").innerText = hours.toString().padStart(2, "0");
+                document.getElementById("count-mins").innerText = mins.toString().padStart(2, "0");
+                document.getElementById("count-secs").innerText = secs.toString().padStart(2, "0");
+            }
+            
+            update();
+            setInterval(update, 1000);
+        }
+
+        function calculateTicketTotal() {
+            const ticketSelect = document.getElementById("ticket-type");
+            const quantityInput = document.getElementById("ticket-qty");
+            const glampingCheckbox = document.getElementById("add-glamping");
+
+            const selectedOption = ticketSelect.options[ticketSelect.selectedIndex];
+            const price = parseFloat(selectedOption.getAttribute("data-price"));
+            const quantity = parseInt(quantityInput.value) || 1;
+
+            const basePriceTotal = price * quantity;
+            const extraPrice = glampingCheckbox.checked ? 7500 : 0;
+            const subtotal = basePriceTotal + extraPrice;
+            const discount = subtotal * 0.10; // Descuento del 10% por transferencia
+            const total = subtotal - discount;
+
+            document.getElementById("summary-base").innerText = `$${basePriceTotal.toLocaleString('es-UY')} UYU`;
+            document.getElementById("summary-extra").innerText = `$${extraPrice.toLocaleString('es-UY')} UYU`;
+            document.getElementById("summary-discount").innerText = `-$${discount.toLocaleString('es-UY')} UYU`;
+            document.getElementById("summary-total").innerText = `$${total.toLocaleString('es-UY')} UYU`;
+        }
+
+        // Procesar Pedido del Cotizador vía API de WhatsApp
+        function submitTicketOrder(event) {
+            event.preventDefault();
+
+            const buyerName = document.getElementById("buyer-name").value;
+            const buyerEmail = document.getElementById("buyer-email").value;
+            const ticketSelect = document.getElementById("ticket-type");
+            const quantityInput = document.getElementById("ticket-qty");
+            const glampingCheckbox = document.getElementById("add-glamping").checked;
+
+            const selectedOption = ticketSelect.options[ticketSelect.selectedIndex].text;
+            const quantity = quantityInput.value;
+            const totalText = document.getElementById("summary-total").innerText;
+
+            let text = "✨ *RESERVA DE ENTRADAS - ECHOES FESTIVAL 2026* ✨\n\n";
+            text += `Hola ECHOES, deseo coordinar mi pase oficial:\n\n`;
+            text += `👤 *Nombre:* ${buyerName}\n`;
+            text += `✉️ *Correo:* ${buyerEmail}\n`;
+            text += `🎟️ *Tipo de Pase:* ${selectedOption}\n`;
+            text += `👥 *Pases:* ${quantity} persona(s)\n`;
+            text += `🏕️ *Eco-Glamping Adicional:* ${glampingCheckbox ? "Sí" : "No"}\n\n`;
+            text += `💵 *Total Neto Estimado:* ${totalText}\n\n`;
+            text += `📌 *Forma de pago:* Transferencia Bancaria (Aplica descuento del 10% ya cotizado).`;
+
+            const phone = "59899000000"; // Número para propósitos académicos y de envío
+            const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(text)}`;
+            window.open(url, "_blank");
+
+            showToast(`🚀 ¡Pedido de ${buyerName} generado con éxito! Redirigiendo a WhatsApp...`);
+        }
+
+        function toggleAcademicInfo() {
+            const modal = document.getElementById("academic-modal");
+            modal.classList.toggle("hidden");
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+
+        // Mostrar Aftermovie Oficial
+        function playFestivalVideo() {
+            const placeholder = document.getElementById("video-placeholder");
+            const iframe = document.getElementById("festival-video");
+            
+            // Video oficial estético de festivales boutique en la naturaleza de YouTube
+            iframe.src = "https://www.youtube.com/embed/g6uunpG7b30?autoplay=1&mute=1";
+            
+            placeholder.classList.add("hidden");
+            iframe.classList.remove("hidden");
+        }
+
+        // Abrir Detalle del Artista
+        function openArtistModal(artistId) {
+            const artist = artists.find(a => a.id === artistId);
+            if (!artist) return;
+
+            document.getElementById("artist-modal-image").src = artist.image;
+            document.getElementById("artist-modal-genre").innerText = artist.genre;
+            document.getElementById("artist-modal-name").innerText = artist.name;
+            document.getElementById("artist-modal-bio").innerText = artist.bio;
+            document.getElementById("audio-track-title").innerText = artist.track;
+
+            // Reiniciar reproductor flotante
+            resetSimulatedAudio();
+
+            document.getElementById("artist-modal").classList.remove("hidden");
+        }
+
+        function closeArtistModal() {
+            resetSimulatedAudio();
+            document.getElementById("artist-modal").classList.add("hidden");
+        }
+
+        // Reproductor de Audio Simulado en Modal de Artista (Consigna de audio)
+        function toggleSimulatedAudio() {
+            const playIcon = document.getElementById("audio-play-icon");
+            const pauseIcon = document.getElementById("audio-pause-icon");
+            const bar = document.getElementById("audio-progress-bar");
+
+            if (isAudioPlaying) {
+                // Pausar reproducción
+                clearInterval(simulatedAudioInterval);
+                playIcon.classList.remove("hidden");
+                pauseIcon.classList.add("hidden");
+                isAudioPlaying = false;
+            } else {
+                // Iniciar simulación de reproducción
+                playIcon.classList.add("hidden");
+                pauseIcon.classList.remove("hidden");
+                isAudioPlaying = true;
+
+                let width = parseFloat(bar.style.width) || 0;
+                simulatedAudioInterval = setInterval(() => {
+                    if (width >= 100) {
+                        resetSimulatedAudio();
+                    } else {
+                        width += 2;
+                        bar.style.width = width + "%";
+                    }
+                }, 100);
+            }
+        }
+
+        function resetSimulatedAudio() {
+            clearInterval(simulatedAudioInterval);
+            isAudioPlaying = false;
+            const playIcon = document.getElementById("audio-play-icon");
+            const pauseIcon = document.getElementById("audio-pause-icon");
+            if (playIcon && pauseIcon) {
+                playIcon.classList.remove("hidden");
+                pauseIcon.classList.add("hidden");
+            }
+            const bar = document.getElementById("audio-progress-bar");
+            if (bar) bar.style.width = "0%";
+        }
+
+        function showToast(message) {
+            const container = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.className = "bg-psy-deepViolet text-slate-100 text-xs px-5 py-4 rounded-2xl shadow-2xl flex items-center justify-between gap-4 pointer-events-auto transform translate-y-4 opacity-0 transition-all duration-300 border border-psy-neonPink/30 shadow-neon-pink font-mono";
+            
+            toast.innerHTML = `
+                <span>${message}</span>
+                <button class="text-psy-electricCyan hover:text-white font-extrabold ml-2">&times;</button>
+            `;
+
+            toast.querySelector("button").onclick = () => {
+                toast.classList.add("opacity-0", "translate-y-4");
+                setTimeout(() => toast.remove(), 300);
+            };
+
+            container.appendChild(toast);
+
+            // Transición suave de entrada
+            setTimeout(() => {
+                toast.classList.remove("opacity-0", "translate-y-4");
+            }, 10);
+
+            // Destrucción automática después de 4 segundos
+            setTimeout(() => {
+                toast.classList.add("opacity-0", "translate-y-4");
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
